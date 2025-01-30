@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="id" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farhan Ramadhan - Portfolio</title>
+    <meta name="description" content="Portfolio profesional Farhan Ramadhan - Data Science dan Machine Learning">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2ecc71;
+            --dark: #2c3e50;
+            --light: #f8f9fa;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            line-height: 1.6;
+            background: var(--light);
+            color: var(--dark);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 3px;
+            background: var(--primary);
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 1.5rem 0;
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--dark);
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
+            background: linear-gradient(135deg, rgba(46, 204, 113, 0.1), rgba(255, 255, 255, 1));
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: #666;
+            margin-bottom: 2rem;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-title {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-link {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.5rem 1rem;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: var(--transition);
+        }
+
+        .project-link:hover {
+            background: #27ae60;
+        }
+
+         /* About Section */
+        .about-content {
+            display: flex;
+            gap: 3rem;
+            align-items: center;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .about-img-container {
+            flex: 0 0 300px;
+            position: relative;
+        }
+
+        .about-img {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            transition: var(--transition);
+        }
+
+        .about-img:hover {
+            transform: translateY(-5px);
+        }
+
+        .about-text {
+            flex: 1;
+            text-align: justify;
+        }
+
+        .about-details {
+            margin-top: 1.5rem;
+            display: grid;
+            gap: 1rem;
+        }
+
+        .detail-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 0.8rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+        }
+
+        .detail-item i {
+            color: var(--primary);
+            font-size: 1.2rem;
+            width: 30px;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .about-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .about-img-container {
+                flex: 0 0 auto;
+                width: 70%;
+                max-width: 300px;
+            }
+            
+            .detail-item {
+                justify-content: center;
+            }
+        }
+
+        /* Contact Section */
+        .contact-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: white;
+            border-radius: 10px;
+            color: var(--dark);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            transform: translateX(10px);
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .social-icon {
+            font-size: 1.5rem;
+            width: 30px;
+            text-align: center;
+        }
+
+        .about-img-container::before {
+            content: '';
+            position: absolute;
+            width: 95%;
+            height: 95%;
+            border: 3px solid var(--primary);
+            border-radius: 15px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-menu {
+                gap: 1rem;
+            }
+            
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .project-card {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav container">
+            <a href="#" class="nav-logo">Farhan Ramadhan</a>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#about" class="nav-link">Tentang</a></li>
+                <li><a href="#projects" class="nav-link">Proyek</a></li>
+                <li><a href="#contact" class="nav-link">Kontak</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero section">
+        <div class="hero-content container reveal">
+            <h1 class="hero-title">Membangun Solusi Berbasis Data yang Bermakna</h1>
+            <p class="hero-subtitle">Data Science & Machine Learning</p>
+        </div>
+    </section>
+
+    <section id="about" class="section">
+        <div class="container reveal">
+            <h2 class="section-title">Tentang Saya</h2>
+            <div class="about-content">
+                <div class="about-img-container">
+                    <img src="C:\Users\Farhan Ramadhan\OneDrive\Documents\Website Portofolio\foto-profil.jpg" alt="Farhan Ramadhan" class="about-img">
+                </div>
+                <div class="about-text">
+                    <p>Saya Farhan Ramadhan, berasal dari Jakarta, dan saat ini sedang menempuh pendidikan Sarjana di Universitas Pancasila. Sebagai mahasiswa Teknik Informatika angkatan 2022, saya memiliki spesialisasi dalam pengembangan model machine learning dan analisis data. Dengan kombinasi kemampuan teknis dalam Python, framework machine learning seperti tensorflow, dan tools data analysis, saya berkomitmen untuk menciptakan solusi berbasis data yang berdampak nyata.</p>
+                    <div class="about-details">
+                        <div class="detail-item">
+                            <i class="fas fa-graduation-cap"></i>
+                            <span>Teknik Informatika - Universitas Pancasila</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Jakarta, Indonesia</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-laptop-code"></i>
+                            <span>Spesialisasi: Data Science & Machine Learning</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="section">
+        <div class="container reveal">
+            <h2 class="section-title">Proyek Terbaru</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3 class="project-title">Image Classification untuk Penyakit Tanaman</h3>
+                    <p>Membuat model CNN untuk klasifikasi penyakit daun anggur menggunakan TensorFlow</p>
+                    <a href="https://github.com/KebunQ-Bangkit-Capstone/kebunq-ml" 
+                       class="project-link" 
+                       target="_blank" 
+                       rel="noopener noreferrer">
+                        Lihat Proyek
+                    </a>
+                </div>
+                
+                <div class="project-card">
+                    <h3 class="project-title">Predictive Analytics Penjualan</h3>
+                    <p>Analisis prediktif pola penjualan supermarket menggunakan algoritma K-NN, Random Forest, Ada Boost</p>
+                    <a href="https://github.com/noahvlone/Project-Predictive-Analytics" 
+                       class="project-link" 
+                       target="_blank" 
+                       rel="noopener noreferrer">
+                        Lihat Proyek
+                    </a>
+                </div>
+
+                <div class="project-card">
+                    <h3 class="project-title">Recommender System Film</h3>
+                    <p>Sistem rekomendasi konten menggunakan Content-Based Filtering</p>
+                    <a href="https://github.com/noahvlone/Project-Recommender-System" 
+                       class="project-link" 
+                       target="_blank" 
+                       rel="noopener noreferrer">
+                        Lihat Proyek
+                    </a>
+                </div>
+
+                <div class="project-card">
+                    <h3 class="project-title">Analisis Data Penyewaan Sepeda</h3>
+                    <p>EDA dan visualisasi data menggunakan Pandas dan Seaborn</p>
+                    <a href="https://github.com/noahvlone/Projek-Analisis-Data-dengan-Python" 
+                       class="project-link" 
+                       target="_blank" 
+                       rel="noopener noreferrer">
+                        Lihat Proyek
+                    </a>
+                </div>
+
+                <div class="project-card">
+                    <h3 class="project-title">Sentiment Analysis dengan PyTorch</h3>
+                    <p>Model NLP untuk analisis sentimen menggunakan RNN dan PyTorch</p>
+                    <a href="https://github.com/noahvlone/Sentiment-Analysis-Using-PyTorch" 
+                       class="project-link" 
+                       target="_blank" 
+                       rel="noopener noreferrer">
+                        Lihat Proyek
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section">
+        <div class="container reveal">
+            <h2 class="section-title">Kontak</h2>
+            <ul class="contact-list">
+                <li>
+                    <a href="https://www.linkedin.com/in/farhan-ramadhan-ml-ai/" 
+                       class="social-link" 
+                       target="_blank" 
+                       rel="noopener noreferrer">
+                        <i class="fab fa-linkedin social-icon"></i>
+                        LinkedIn
+                    </a>
+                </li>
+                <li>
+                    <a href="https://github.com/noahvlone" 
+                       class="social-link" 
+                       target="_blank" 
+                       rel="noopener noreferrer">
+                        <i class="fab fa-github social-icon"></i>
+                        GitHub
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.instagram.com/farhann.r__/" 
+                       class="social-link" 
+                       target="_blank" 
+                       rel="noopener noreferrer">
+                        <i class="fab fa-instagram social-icon"></i>
+                        Instagram
+                    </a>
+                </li>
+                <li>
+                    <a href="mailto:farhan.ramadhn2.0@gmail.com" 
+                       class="social-link">
+                        <i class="fas fa-envelope social-icon"></i>
+                        Email
+                    </a>
+                </li>
+                <li>
+                    <a href="https://x.com/farhanramadhn_" 
+                       class="social-link" 
+                       target="_blank" 
+                       rel="noopener noreferrer">
+                        <i class="fab fa-x-twitter social-icon"></i>
+                        Twitter/X
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <script>
+        window.addEventListener('scroll', reveal);
+        function reveal() {
+            const reveals = document.querySelectorAll('.reveal');
+            reveals.forEach(element => {
+                const windowHeight = window.innerHeight;
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+
+                if (elementTop < windowHeight - elementVisible) {
+                    element.classList.add('active');
+                }
+            });
+        }
+
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (window.scrollY >= sectionTop - 300) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').includes(current)) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
