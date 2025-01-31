@@ -1,3 +1,3 @@
 # Website-Porto
 
-nih pas udh di deploy ke vercel: https://portofolio-farhan-ramadhan.vercel.app/
+nih pas udh di deploy ke vercel: [link](https://portofolio-farhan-ramadhan.vercel.app/)
